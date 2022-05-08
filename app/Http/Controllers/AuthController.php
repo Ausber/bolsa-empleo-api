@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 use JWTAuth;
@@ -33,14 +34,16 @@ class AuthController extends Controller
     }
 
     public function register (Request $request){
-
-        return User::create([ 
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'document_type' => $request->input('document_type'),
-            'document_number' => $request->input('document_number')
-        ]);
+        // DB::transaction(function ($request){
+            return User::create([ 
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'document_type' => $request->input('document_type'),
+                'document_number' => $request->input('document_number')
+            ]);
+        // });       
+      
     }
 
     public function authenticate(Request $request)
