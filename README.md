@@ -5,26 +5,41 @@ Api para prueba tecnica Talentu, desarrollada en Laravel!
 ### Pre-requisitos
 Tener instalado postman, motor de base de datos en mariadb
 ### Pasos para funcionamiento
-    1. Clonar repositorio de github 
-    --
-    https://github.com/Ausber/bolsa-empleo-api.git
-    --
-    2. Configurar entorno de conexion de laravel con el usuario y contraseña a su vez crear la base de datos  bolsaempleo.
+    Clonar repositorio de github 
 
-    3. Realizar las migraciones utilizando
-    --
-    php artisan migrate
-    --
+    1. https://github.com/Ausber/bolsa-empleo-api.git
 
-    4. Ejecutar los seeder
-    --
-    php artisan serve db:seed
-    --
+    2. Se debe crear en la raiz del proyecto el archivo .env
 
-    5. Levantar servidor
-    --
-    php artisan serve
-    --
+    Instalar las dependecias del proyecto con composer, en la consola ingresamos:
+
+    3. composer install
+
+    Generar la key del proyecto por medio del comando:
+
+    4. php artisan key:generate
+
+    Generar la key de JWT con el comando
+
+    5. php artisan jwt:secret
+
+
+    6 . Configurar entorno de conexion de laravel con el usuario y contraseña a su vez crear la base de datos  bolsaempleo.
+
+    Realizar las migraciones utilizando
+    
+     7. php artisan migrate
+    
+
+    Ejecutar los seeder
+   
+    8. php artisan serve db:seed
+   
+
+     Levantar servidor
+
+    9. php artisan serve
+
 
 ### Endpoints APi
 
