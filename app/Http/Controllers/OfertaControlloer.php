@@ -67,11 +67,11 @@ class OfertaControlloer extends Controller
             DB::rollBack();
             return response(['message' => $th->getMessage()], 500);
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return response()->json(['Token Vencido!'], $e->getStatusCode());
+            return response()->json(['Token Vencido!'], Response::HTTP_UNAUTHORIZED);
         } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return response()->json(['Token Invalido'], $e->getStatusCode());
+            return response()->json(['Token Invalido'], Response::HTTP_UNAUTHORIZED);
         } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return response()->json(['token_absent'], $e->getStatusCode());
+            return response()->json(['token_absent'], Response::HTTP_UNAUTHORIZED);
         }
     }
 
